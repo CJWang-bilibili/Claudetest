@@ -16,10 +16,11 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - name: Checkout repository   # ← 必须加这一步
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          token: ${{ secrets.PAT_TOKEN }}   # ← 这里也要加！
 
       - name: Run Claude Code
         uses: anthropics/claude-code-action@v1
